@@ -7,6 +7,9 @@ public class RockSpawner : MonoBehaviour
     [SerializeField]
     GameObject prefabRock;
 
+    // store all possible rocks that can be spawned
+    public Sprite[] sprites;
+
     int xPosition = Screen.width / 2;
     int yPosition = Screen.height / 2;
 
@@ -40,21 +43,7 @@ public class RockSpawner : MonoBehaviour
 
     void SpawnRock()
     {
-        int rockChoice = Random.Range(0, 3);
 
-        switch(rockChoice)
-        {
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            default:
-                // An error occured
-                // default to green rock
-                break;
-        }
 
         Vector3 location = new Vector3(centerPoint.x,
             centerPoint.y,
@@ -62,5 +51,10 @@ public class RockSpawner : MonoBehaviour
         Vector3 worldLocation = Camera.main.ScreenToWorldPoint(location);
         GameObject rock = Instantiate(prefabRock) as GameObject;
         rock.transform.position = worldLocation;
+
+
+        int randomSprite = Random.Range(0, sprites.Length);
+        SpriteRenderer rockSprite = rock.GetComponent<SpriteRenderer>();
+        rockSprite.sprite = sprites[randomSprite];
     }
 }

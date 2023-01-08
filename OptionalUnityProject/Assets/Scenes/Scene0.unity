@@ -221,3 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabRock: {fileID: 4738975141958755658, guid: 96e097724a5b7f441a43c9741a6e7bb2, type: 3}
+  sprites:
+  - {fileID: 21300000, guid: 1da1b859e4133bd4d8e2e50f0e1e3a6a, type: 3}
+  - {fileID: 21300000, guid: 47ce0f5aa42946b4c979b56db25ab0b0, type: 3}
+  - {fileID: 21300000, guid: b613c79e58700ac449f06c28da5519d6, type: 3}
