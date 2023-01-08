@@ -13,7 +13,7 @@ public class RockSpawner : MonoBehaviour
     int xPosition = Screen.width / 2;
     int yPosition = Screen.height / 2;
 
-    float spawnTimeDelay = 2;
+    float spawnTimeDelay = 1;
     float spawnTimeElapsed = 0;
 
     Vector2 centerPoint;
