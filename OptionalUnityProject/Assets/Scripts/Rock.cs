@@ -18,11 +18,56 @@ public class Rock : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(
             direction * magnitude,
             ForceMode2D.Impulse);
+
+        //////////////////////////////////////////////////////
+        Vector3 location = new Vector3(Screen.width / 2,
+            Screen.height / 2,
+            -Camera.main.transform.position.z);
+        Vector3 worldLocation = Camera.main.ScreenToWorldPoint(location);
+
+        //Debug.Log("x position: " + transform.localPosition.x);
+        //Debug.Log("y position: " + transform.localPosition.y);
+
+        //Debug.Log("screen width: " + Screen.width);
+        //Debug.Log("screen height: " + Screen.height);
+
+        //Debug.Log("screen "worldLocation.x);
+        //Debug.Log(worldLocation.y);
     }
 
     // Update is called once per frame
     void Update()
     {
+        // min world x and y
+        Vector3 minWorldLocation = Camera.main.ScreenToWorldPoint(
+            new Vector3(
+                0,
+                0,
+                -Camera.main.transform.position.z
+            )
+        );
 
+        
+
+        // max world x and y
+        Vector3 maxWorldLocation = Camera.main.ScreenToWorldPoint(
+            new Vector3(
+                Screen.width,
+                Screen.height,
+                -Camera.main.transform.position.z
+            )
+        );
+
+        // sprite size
+        float spriteWidth = GetComponent<SpriteRenderer>().bounds.size.x;
+        float spriteHeight = GetComponent<SpriteRenderer>().bounds.size.y;
+
+        if (transform.localPosition.x < (minWorldLocation.x - spriteWidth / 2) ||
+            transform.localPosition.x > (maxWorldLocation.x + spriteWidth / 2) || 
+            transform.localPosition.y < (minWorldLocation.y - spriteHeight / 2) ||
+            transform.localPosition.y > (maxWorldLocation.y + spriteHeight / 2))
+        {
+            Destroy(gameObject);
+        }
     }
 }

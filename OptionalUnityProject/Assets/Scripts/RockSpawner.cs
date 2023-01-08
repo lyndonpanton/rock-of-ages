@@ -15,6 +15,9 @@ public class RockSpawner : MonoBehaviour
 
     Vector2 centerPoint;
 
+    // track how many rocks are currently spawned
+    int rockCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +29,12 @@ public class RockSpawner : MonoBehaviour
     {
         spawnTimeElapsed += Time.deltaTime;
 
-        if (spawnTimeElapsed >= spawnTimeDelay) 
+        if (spawnTimeElapsed >= spawnTimeDelay && rockCount < 3) 
         {
             SpawnRock();
             // Instantiate<GameObject>(prefabRock, centerPoint, Quaternion.identity);
             spawnTimeElapsed = 0;
+            rockCount++;
         }
     }
 
