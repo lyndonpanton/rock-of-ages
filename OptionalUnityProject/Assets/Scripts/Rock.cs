@@ -19,20 +19,10 @@ public class Rock : MonoBehaviour
             direction * magnitude,
             ForceMode2D.Impulse);
 
-        //////////////////////////////////////////////////////
         Vector3 location = new Vector3(Screen.width / 2,
             Screen.height / 2,
             -Camera.main.transform.position.z);
         Vector3 worldLocation = Camera.main.ScreenToWorldPoint(location);
-
-        //Debug.Log("x position: " + transform.localPosition.x);
-        //Debug.Log("y position: " + transform.localPosition.y);
-
-        //Debug.Log("screen width: " + Screen.width);
-        //Debug.Log("screen height: " + Screen.height);
-
-        //Debug.Log("screen "worldLocation.x);
-        //Debug.Log(worldLocation.y);
     }
 
     // Update is called once per frame

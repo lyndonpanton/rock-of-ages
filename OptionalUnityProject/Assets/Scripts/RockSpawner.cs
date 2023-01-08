@@ -35,7 +35,6 @@ public class RockSpawner : MonoBehaviour
         if (spawnTimeElapsed >= spawnTimeDelay && rockCount < 3) 
         {
             SpawnRock();
-            // Instantiate<GameObject>(prefabRock, centerPoint, Quaternion.identity);
             spawnTimeElapsed = 0;
             rockCount++;
         }
