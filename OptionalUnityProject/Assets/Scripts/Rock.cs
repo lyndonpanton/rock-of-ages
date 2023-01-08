@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
+    RockSpawner rockSpawner;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,8 @@ public class Rock : MonoBehaviour
             Screen.height / 2,
             -Camera.main.transform.position.z);
         Vector3 worldLocation = Camera.main.ScreenToWorldPoint(location);
+
+        rockSpawner = Camera.main.GetComponent<RockSpawner>();
     }
 
     // Update is called once per frame
@@ -58,6 +61,7 @@ public class Rock : MonoBehaviour
             transform.localPosition.y > (maxWorldLocation.y + spriteHeight / 2))
         {
             Destroy(gameObject);
+            rockSpawner.rockCount--;
         }
     }
 }
